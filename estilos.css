@@ -102,8 +102,8 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 30px 30px;
+  gap: 10px;
+  padding: 10px 10px;
   animation: fadeIn 0.7s ease;
 }
 
@@ -120,9 +120,8 @@ body {
   opacity: 0;
   position: relative;
   padding: 10px;
-  width: 100%;           /* ancho flexible */
-  max-width: 320px;     /* límite en pantallas grandes */
-  margin: 20px auto;    /* centra horizontalmente */
+  width: 100%;
+  max-width: clamp(280px, 50vw, 500px); /* mínimo 280px, ideal 50% del viewport, máximo 500px */
 }
 
 
@@ -439,5 +438,11 @@ body {
     width: 100%;
     min-width: unset;
     max-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    max-width: 100%; /* Más ancha en móviles */
   }
 }
